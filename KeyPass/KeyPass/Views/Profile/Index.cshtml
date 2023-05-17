@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Пропуск";
+}
+
+<div class="text-center">
+    @if(Model == null)
+    {
+        <p>Вам не назначен отдел.</p>
+    }
+    else 
+    {
+        <img src="@String.Format("data:image/png;base64,{0}", Convert.ToBase64String(Model))" />
+    }
+</div>

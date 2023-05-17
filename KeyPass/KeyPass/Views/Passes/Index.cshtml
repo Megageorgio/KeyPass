@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KeyPass.Models.Pass>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Пропуски</h1>
+
+<p>
+    <a asp-action="Create" role="button" class="btn btn-success">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PassType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" role="button" class="btn btn-primary">Изменить</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" role="button" class="btn btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
